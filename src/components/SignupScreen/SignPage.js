@@ -152,8 +152,8 @@ const Register = () => {
                     <span className="text-danger">Passwords dont match</span>
                 ) : null}
 					<Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
+                    By creating an account, I consent to the processing of my personal
+                    data in accordance with the <b>PRIVACY POLICY</b>
                    </Agreement>
                 {dataLoading.loading === false ? (
 				
@@ -224,5 +224,6 @@ const Cadastro = styled.p`
     text-decoration: underline;
     
 `;
+
 
 export default Register;
