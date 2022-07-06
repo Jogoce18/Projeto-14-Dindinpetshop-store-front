@@ -4,6 +4,7 @@ import React from 'react';
 import "./../css/reset.css";
 import "./../css/style.css"
 import Home from "./Home";
+import Register from "./SignPage";
 
 
 
@@ -18,6 +19,7 @@ export default function App() {
               <BrowserRouter>
                   <Routes>
                     <Route path ='/' element ={<Home/>}/>
+                    <Route path="/cadastro" element={<Register />}/>
                   </Routes>
               </BrowserRouter> 
   
