@@ -1,14 +1,11 @@
 import React from "react";
 
+import TopBar from "./TopBar/TopBar";
 
-
-const Home = () => {
-  return (
-    <div>
-      
-    
-    </div>
-  );
-};
-
-export default Home;
+export default function Home() {
+	return (
+		<div>
+			<TopBar />
+		</div>
+	);
+}
