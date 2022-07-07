@@ -36,7 +36,7 @@ export default function LoginScreen() {
 		try {
 			const { data } = await axios.post(url.login, {}, config);
 			setUserInformation(data);
-			navigate("/store");
+			navigate("/");
 		} catch (error) {
 			if (error.response.status === 422) {
 				alert("Preencha os dados corretamente!");

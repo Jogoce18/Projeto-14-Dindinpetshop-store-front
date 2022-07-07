@@ -1,10 +1,47 @@
+import axios from "axios";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 
+import url from "../services/url";
+import SearchContext from "../contexts/SearchContext";
+
 export default function SearchBar() {
+	const [searchData, setSearchData] = useState({
+		searchItem: "",
+	});
+
+	const { setSearchInformation } = useContext(SearchContext);
+
+	function handleFormChange(e) {
+		let item = { ...searchData };
+		item[e.target.name] = e.target.value;
+		setSearchData(item);
+	}
+
+	async function getSearchItems(e) {
+		e.preventDefault();
+		try {
+			const { data } = await axios.get(url.search, {
+				headers: searchData,
+			});
+			setSearchInformation(data);
+		} catch (error) {
+			console.log(error.response.status);
+		}
+	}
+
 	return (
-		<Form action="/" method="get">
-			<Input type="text" placeholder="Search products" name="s" />
-			<Button type="submit">Search</Button>
+		<Form>
+			<Input
+				type="text"
+				placeholder="Search products"
+				name="searchItem"
+				value={searchData.searchItem}
+				onChange={(e) => handleFormChange(e)}
+			/>
+			<Button onClick={getSearchItems} type="submit">
+				Search
+			</Button>
 		</Form>
 	);
 }
