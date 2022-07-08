@@ -11,6 +11,7 @@ import Product from "../components/Product/Product";
 import ProductList from "./ProductList/ProductList";
 import SearchScreen from "./SearchScreen/SearchScreen";
 import SearchContext from "./contexts/SearchContext";
+import Cart from "../components/Cart/Cart";
 
 export default function App() {
 	const [userInformation, setUserInformation] = useState({});
@@ -36,6 +37,7 @@ export default function App() {
 						<Route path="/cadastro" element={<Register />} />
 						<Route path="/" element={<Home />} />
 						<Route path="/product/:id" element={<Product />} />
+						<Route path="/cart" element={<Cart />} />
 						<Route path="/products/:category" element={<ProductList />} />
 						<Route path="/search" element={<SearchScreen />} />
 					</Routes>

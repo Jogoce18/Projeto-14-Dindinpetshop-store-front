@@ -1,15 +1,26 @@
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../../responsive";
-
+import TopBar from "../TopBar/TopBar";
 import { useContext } from "react";
 import SearchContext from "../contexts/SearchContext";
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
-	const { selectedItem } = useContext(SearchContext);
+  
+ 
+  const { selectedItem } = useContext(SearchContext);
+  const navigate = useNavigate();
+
+
+  const handleClick = () => {
+	navigate("/cart");
+  };
+  
 
 	return (
 		<Container>
+      <TopBar />
 			<Wrapper>
 				<ImgContainer>
 					<Image src={selectedItem.image} />
@@ -18,26 +29,10 @@ const Product = () => {
 					<Title>{selectedItem.name}</Title>
 					<Desc></Desc>
 					<Price>{selectedItem.value}</Price>
-					<FilterContainer>
-						<Filter>
-							<FilterTitle>Color</FilterTitle>
-
-							<FilterColor />
-						</Filter>
-						<Filter>
-							<FilterTitle>Size</FilterTitle>
-							<FilterSize>
-								<FilterSizeOption></FilterSizeOption>
-							</FilterSize>
-						</Filter>
-					</FilterContainer>
 					<AddContainer>
-						<AmountContainer>
-							<Remove />
-							<Amount></Amount>
-							<Add />
-						</AmountContainer>
-						<Button>ADD TO CART</Button>
+						
+						<Button onClick={handleClick}>ADD TO CART</Button>
+						
 					</AddContainer>
 
 					<span>{selectedItem.description}</span>
