@@ -13,9 +13,12 @@ const CategoryItem = ({ item }) => {
 	const getProducts = async () => {
 		const category = item.cat;
 		try {
-			const { data } = await axios.get("http://localhost:5000/category", {
-				headers: { category },
-			});
+			const { data } = await axios.get(
+				"https://dindinpetshop.herokuapp.com/category",
+				{
+					headers: { category },
+				}
+			);
 			setProducts(data);
 			navigate(`/products/${item.cat}`);
 		} catch (err) {
