@@ -14,7 +14,7 @@ export default function TopBar() {
 	}
 
 	function goHome() {
-		navigate("/home");
+		navigate("/");
 	}
 
 	return (
