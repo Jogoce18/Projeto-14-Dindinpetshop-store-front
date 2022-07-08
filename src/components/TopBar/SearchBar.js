@@ -32,6 +32,7 @@ export default function SearchBar() {
 
 	return (
 		<Form>
+			
 			<Input
 				type="text"
 				placeholder="Search products"
@@ -39,8 +40,9 @@ export default function SearchBar() {
 				value={searchData.searchItem}
 				onChange={(e) => handleFormChange(e)}
 			/>
+		
 			<Button onClick={getSearchItems} type="submit">
-				Search
+			Search
 			</Button>
 		</Form>
 	);

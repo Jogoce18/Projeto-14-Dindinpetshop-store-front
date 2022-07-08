@@ -1,25 +1,26 @@
 export const sliderItems = [
+   {
+      id: 3,
+      img: "https://m.media-amazon.com/images/I/51-jtFrdsFL._AC_SX679_.jpg",
+      title: "FIND EVERYTHING YOU NEED FOR YOUR BEST FRIEND",
+      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "fbf0f4",
+    },
     {
       id: 1,
-      img: "https://i.ibb.co/XsdmR2c/1.png",
-      title: "SUMMER SALE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      img: "https://lordperrum.com/wp-content/uploads/2015/03/Copia-de-Tama%C3%B1o-Productos-web-Lord-Perrum-5.png",
+      title: "CANAGAN DENTAL",
+      desc: "GET UP TO 40% OFF FOR NEW ARRIVALS.",
       bg: "f5fafd",
     },
     {
       id: 2,
-      img: "https://i.ibb.co/DG69bQ4/2.png",
+      img: "https://m.media-amazon.com/images/I/814gOOhSB-L._AC_SX679_.jpg",
       title: "AUTUMN COLLECTION",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "fcf1ed",
     },
-    {
-      id: 3,
-      img: "https://i.ibb.co/cXFnLLV/3.png",
-      title: "LOUNGEWEAR LOVE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fbf0f4",
-    },
+   
   ];
 
   export const categories = [
