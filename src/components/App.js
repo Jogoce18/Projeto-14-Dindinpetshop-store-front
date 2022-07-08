@@ -20,7 +20,7 @@ export default function App() {
 
 	return (
 		<UserContext.Provider value={{ userInformation, setUserInformation }}>
-<<<<<<< HEAD
+
 
 			<BrowserRouter>
 				<Routes>
@@ -33,8 +33,8 @@ export default function App() {
 				</Routes>
 			</BrowserRouter>
 
-=======
->>>>>>> 56a9ff7218f793600875fc81dcf2b958d4d7e6bd
+
+
 			<SearchContext.Provider
 				value={{
 					searchInformation,
