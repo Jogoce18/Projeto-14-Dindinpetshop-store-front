@@ -54,8 +54,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-	width: 400px;
-	min-width: 30%;
+	width: 120%;
 	padding: 13px;
 `;
 
