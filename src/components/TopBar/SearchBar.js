@@ -54,12 +54,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-<<<<<<< HEAD
 	width: 120%;
-=======
-	width: 400px;
-	min-width: 30%;
->>>>>>> 95fb02982fb0454b5b5a58e2ea78da7de859547a
 	padding: 13px;
 `;
 

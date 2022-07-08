@@ -12,35 +12,34 @@ import ProductList from "./ProductList/ProductList";
 
 import SearchContext from "./contexts/SearchContext";
 
-
 export default function App() {
 	const [userInformation, setUserInformation] = useState({});
 	const [searchInformation, setSearchInformation] = useState([]);
+	const [products, setProducts] = useState([]);
+	const [selectedItem, setSelectedItem] = useState({});
+
 	return (
 		<UserContext.Provider value={{ userInformation, setUserInformation }}>
-
-			<BrowserRouter>
-				<Routes>
-				    <Route path="/login" element={<LoginScreen />} />
-					<Route path="/cadastro" element={<Register />} />
-					<Route path="/home" element={<Home />} />
-					<Route path="/product/:id" element={<Product />} />
-					<Route path="/products/:category" element={<ProductList />} />
-				</Routes>
-			</BrowserRouter>
-
 			<SearchContext.Provider
-				value={{ searchInformation, setSearchInformation }}
+				value={{
+					searchInformation,
+					setSearchInformation,
+					products,
+					setProducts,
+					setSelectedItem,
+					selectedItem,
+				}}
 			>
 				<BrowserRouter>
 					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/cadastro" element={<Register />} />
 						<Route path="/login" element={<LoginScreen />} />
+						<Route path="/cadastro" element={<Register />} />
+						<Route path="/" element={<Home />} />
+						<Route path="/product/:id" element={<Product />} />
+						<Route path="/products/:category" element={<ProductList />} />
 					</Routes>
 				</BrowserRouter>
 			</SearchContext.Provider>
-
 		</UserContext.Provider>
 	);
 }
