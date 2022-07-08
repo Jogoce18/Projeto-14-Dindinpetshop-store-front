@@ -9,7 +9,7 @@ import LoginScreen from "../components/LoginScreen/LoginScreen";
 import UserContext from "./contexts/UserContext";
 import Product from "../components/Product/Product";
 import ProductList from "./ProductList/ProductList";
-
+import SearchScreen from "./SearchScreen/SearchScreen";
 import SearchContext from "./contexts/SearchContext";
 
 export default function App() {
@@ -52,6 +52,7 @@ export default function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="/product/:id" element={<Product />} />
 						<Route path="/products/:category" element={<ProductList />} />
+						<Route path="/search" element={<SearchScreen />} />
 					</Routes>
 				</BrowserRouter>
 			</SearchContext.Provider>

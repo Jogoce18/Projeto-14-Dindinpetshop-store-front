@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import url from "../services/url";
 import SearchContext from "../contexts/SearchContext";
@@ -9,6 +10,8 @@ export default function SearchBar() {
 	const [searchData, setSearchData] = useState({
 		searchItem: "",
 	});
+
+	const navigate = useNavigate();
 
 	const { setSearchInformation } = useContext(SearchContext);
 
@@ -25,6 +28,7 @@ export default function SearchBar() {
 				headers: searchData,
 			});
 			setSearchInformation(data);
+			navigate("/search");
 		} catch (error) {
 			console.log(error.response.status);
 		}
