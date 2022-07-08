@@ -15,56 +15,59 @@ export default function TopBar() {
 
 	return (
 		<Box>
-			<img src="./assets/logo.png" alt="Logo" />
-			<SearchBar />
-			{userInformation.name ? (
-				<UserName>{`Olá, ${userInformation.name}`}</UserName>
-			) : (
-				<ButtonLogin onClick={clickLogin}>SIGN IN</ButtonLogin>
-			)}
-			<ion-icon name="cart-outline"></ion-icon>
+			<div>
+				<img src="./assets/logo.png" alt="Logo" />
+				<SearchBar />
+			</div>
+			<span>
+				{userInformation.name ? (
+					<UserName>{`Olá, ${userInformation.name}`}</UserName>
+				) : (
+					<ButtonLogin onClick={clickLogin}>SIGN IN</ButtonLogin>
+				)}
+				<ion-icon name="cart-outline"></ion-icon>
+			</span>
 		</Box>
 	);
 }
 
 const Box = styled.div`
-	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	background-color: white;
-	border-radius: 0 0 10px 10px;
-	box-shadow: 1px 5px rgba(0, 0, 0, 0.2);
+	justify-content: space-between;
 
 	img {
 		width: 80px;
 	}
 
 	ion-icon {
-		position: absolute;
-		top: 22px;
-		right: 20px;
 		font-size: 30px;
 		color: gray;
+	}
+
+	span {
+		display: flex;
+		margin-right: 30px;
+	}
+
+	div:first-child {
+		display: flex;
 	}
 `;
 
 const ButtonLogin = styled.div`
-	position: absolute;
-	top: 26px;
-	right: 55px;
-	width: 55px;
+	width: 80px;
 	border: none;
 	padding: 5px;
 	color: teal;
 	cursor: pointer;
+	margin-right: 30px;
 `;
 
 const UserName = styled.div`
-	position: absolute;
-	top: 18px;
-	right: 55px;
-	width: 55px;
+	margin-right: 30px;
+	width: 80px;
 	border: none;
 	padding: 5px;
 	color: teal;
