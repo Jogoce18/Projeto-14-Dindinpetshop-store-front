@@ -13,6 +13,10 @@ export default function TopBar() {
 		navigate("/login");
 	}
 
+	function goHome() {
+		navigate("/");
+	}
+
 	return (
 		<Box>
 			<div>
