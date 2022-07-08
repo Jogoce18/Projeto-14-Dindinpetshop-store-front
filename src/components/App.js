@@ -7,6 +7,8 @@ import Home from "./Home";
 import Register from "../components/SignupScreen/SignPage";
 import LoginScreen from "../components/LoginScreen/LoginScreen";
 import UserContext from "./contexts/UserContext";
+import Product from "../components/Product/Product";
+import ProductList from "./ProductList/ProductList";
 
 export default function App() {
 	const [userInformation, setUserInformation] = useState({});
@@ -14,9 +16,11 @@ export default function App() {
 		<UserContext.Provider value={{ userInformation, setUserInformation }}>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<Home />} />
+				    <Route path="/login" element={<LoginScreen />} />
 					<Route path="/cadastro" element={<Register />} />
-					<Route path="/login" element={<LoginScreen />} />
+					<Route path="/home" element={<Home />} />
+					<Route path="/product/:id" element={<Product />} />
+					<Route path="/products/:category" element={<ProductList />} />
 				</Routes>
 			</BrowserRouter>
 		</UserContext.Provider>
