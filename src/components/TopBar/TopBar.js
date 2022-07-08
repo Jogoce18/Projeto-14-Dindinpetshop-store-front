@@ -20,7 +20,7 @@ export default function TopBar() {
 			{userInformation.name ? (
 				<UserName>{`Olá, ${userInformation.name}`}</UserName>
 			) : (
-				<ButtonLogin onClick={clickLogin}>Log in</ButtonLogin>
+				<ButtonLogin onClick={clickLogin}>SIGN IN</ButtonLogin>
 			)}
 			<ion-icon name="cart-outline"></ion-icon>
 		</Box>
