@@ -4,6 +4,7 @@ import Products from "./ProductList/Products.js";
 import TopBar from "./TopBar/TopBar";
 import Slider from "./Slider/Slider";
 import Footer from "./Footer.js/Footer";
+
 const Home = () => {
   return (
     <div>
