@@ -20,21 +20,6 @@ export default function App() {
 
 	return (
 		<UserContext.Provider value={{ userInformation, setUserInformation }}>
-
-
-			<BrowserRouter>
-				<Routes>
-				    <Route path="/login" element={<LoginScreen />} />
-					<Route path="/cadastro" element={<Register />} />
-					<Route path="/home" element={<Home />} />
-					<Route path="/product/:id" element={<Product />} />
-					<Route path="/products/:category" element={<ProductList />} />
-				
-				</Routes>
-			</BrowserRouter>
-
-
-
 			<SearchContext.Provider
 				value={{
 					searchInformation,
