@@ -1,22 +1,21 @@
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../../responsive";
-import TopBar from "../TopBar/TopBar";
+import { useNavigate } from "react-router-dom";
+
 import { useContext } from "react";
 import SearchContext from "../contexts/SearchContext";
 import { useNavigate } from "react-router-dom";
 
 const Product = () => {
-  
- 
-  const { selectedItem } = useContext(SearchContext);
-  const navigate = useNavigate();
+	const { selectedItem, idItems, setIdItems } = useContext(SearchContext);
+	const navigate = useNavigate();
 
-
-  const handleClick = () => {
-	navigate("/cart");
-  };
-  
+	function addIdCart() {
+		let id = selectedItem._id;
+		setIdItems([...idItems, id]);
+		navigate("/");
+	}
 
 	return (
 		<Container>
@@ -30,9 +29,12 @@ const Product = () => {
 					<Desc></Desc>
 					<Price>{selectedItem.value}</Price>
 					<AddContainer>
-						
-						<Button onClick={handleClick}>ADD TO CART</Button>
-						
+						<AmountContainer>
+							<Remove />
+							<Amount></Amount>
+							<Add />
+						</AmountContainer>
+						<Button onClick={addIdCart}>ADD TO CART</Button>
 					</AddContainer>
 
 					<span>{selectedItem.description}</span>

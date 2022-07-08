@@ -18,6 +18,7 @@ export default function App() {
 	const [searchInformation, setSearchInformation] = useState([]);
 	const [products, setProducts] = useState([]);
 	const [selectedItem, setSelectedItem] = useState({});
+	const [idItems, setIdItems] = useState([]);
 
 	return (
 		<UserContext.Provider value={{ userInformation, setUserInformation }}>
@@ -29,6 +30,8 @@ export default function App() {
 					setProducts,
 					setSelectedItem,
 					selectedItem,
+					idItems,
+					setIdItems,
 				}}
 			>
 				<BrowserRouter>
