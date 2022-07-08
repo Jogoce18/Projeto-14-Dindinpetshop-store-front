@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useContext } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import TopBar from "../TopBar/TopBar";
 import Footer from "../Footer.js/Footer";

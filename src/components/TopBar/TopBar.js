@@ -14,13 +14,13 @@ export default function TopBar() {
 	}
 
 	function goHome() {
-		navigate("/");
+		navigate("/home");
 	}
 
 	return (
 		<Box>
 			<div>
-				<img src="./assets/logo.png" alt="Logo" />
+				<img src="./assets/logo.png" alt="Logo" onClick={goHome} />
 				<SearchBar />
 			</div>
 			<span>
