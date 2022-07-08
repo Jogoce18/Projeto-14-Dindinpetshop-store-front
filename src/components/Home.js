@@ -15,3 +15,15 @@ const Home = () => {
 };
 
 export default Home;
+
+
+import TopBar from "./TopBar/TopBar";
+
+export default function Home() {
+	return (
+		<div>
+			<TopBar />
+		</div>
+	);
+}
+
