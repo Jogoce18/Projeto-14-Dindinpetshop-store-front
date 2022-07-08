@@ -16,7 +16,7 @@ const Product = ({ item }) => {
 	async function searchItemWithId() {
 		try {
 			const { data } = await axios.get(
-				`http://localhost:5000/produtos/${item._id}`
+				`https://dindinpetshop.herokuapp.com/produtos/${item._id}`
 			);
 
 			setSelectedItem(data);
