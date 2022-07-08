@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import axios from "axios";
 
 import AuthScreen from "../shared/AuthScreen";
@@ -9,12 +9,8 @@ import UserContext from "../contexts/UserContext";
 import FormsLogin from "./FormsLogin";
 
 export default function LoginScreen() {
-	const [loginDataInput, setLoginDataInput] = useState({
-		email: "",
-		password: "",
-	});
-
-	const { setUserInformation } = useContext(UserContext);
+	const { setUserInformation, setLoginDataInput, loginDataInput } =
+		useContext(UserContext);
 
 	const navigate = useNavigate();
 
