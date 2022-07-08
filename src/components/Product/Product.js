@@ -12,8 +12,7 @@ const Product = () => {
 	const navigate = useNavigate();
 
 	function addIdCart() {
-		let id = selectedItem._id;
-		setIdItems([...idItems, id]);
+		setIdItems([...idItems, selectedItem]);
 		navigate("/");
 	}
 
