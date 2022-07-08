@@ -11,16 +11,28 @@ import Product from "../components/Product/Product";
 import ProductList from "./ProductList/ProductList";
 import SearchScreen from "./SearchScreen/SearchScreen";
 import SearchContext from "./contexts/SearchContext";
+import OrderComplete from "./OrderComplete/OrderComplete";
 
 export default function App() {
 	const [userInformation, setUserInformation] = useState({});
+	const [loginDataInput, setLoginDataInput] = useState({
+		email: "",
+		password: "",
+	});
 	const [searchInformation, setSearchInformation] = useState([]);
 	const [products, setProducts] = useState([]);
 	const [selectedItem, setSelectedItem] = useState({});
 	const [idItems, setIdItems] = useState([]);
 
 	return (
-		<UserContext.Provider value={{ userInformation, setUserInformation }}>
+		<UserContext.Provider
+			value={{
+				userInformation,
+				setUserInformation,
+				loginDataInput,
+				setLoginDataInput,
+			}}
+		>
 			<SearchContext.Provider
 				value={{
 					searchInformation,
@@ -41,6 +53,7 @@ export default function App() {
 						<Route path="/product/:id" element={<Product />} />
 						<Route path="/products/:category" element={<ProductList />} />
 						<Route path="/search" element={<SearchScreen />} />
+						<Route path="/done" element={<OrderComplete />} />
 					</Routes>
 				</BrowserRouter>
 			</SearchContext.Provider>
