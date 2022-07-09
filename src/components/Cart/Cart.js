@@ -38,7 +38,7 @@ const Cart = () => {
 		e.preventDefault();
 		if (userInformation.token) {
 			try {
-				await axios.post("http://localhost:5000/done", {
+				await axios.post("https://dindinpetshop.herokuapp.com/done", {
 					paymentData,
 					items: idItems,
 				});
