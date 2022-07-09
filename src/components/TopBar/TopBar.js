@@ -20,7 +20,7 @@ export default function TopBar() {
 	return (
 		<Box>
 			<div>
-				<img src="./assets/logo.png" alt="Logo" onClick={goHome} />
+				<img src="../../logo.png" alt="Logo" onClick={goHome} />
 				<SearchBar />
 			</div>
 			<span>
