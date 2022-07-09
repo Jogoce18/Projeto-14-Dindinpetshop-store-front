@@ -1,14 +1,10 @@
 import styled from "styled-components";
 import { mobile } from "../../responsive";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import SearchContext from "../contexts/SearchContext";
 
-
-
-import { useNavigate } from "react-router-dom";
 import Home from "../Home";
-
 
 const Product = () => {
 	const { selectedItem, idItems, setIdItems } = useContext(SearchContext);
@@ -18,67 +14,32 @@ const Product = () => {
 		setIdItems([...idItems, selectedItem]);
 		navigate("/");
 	}
+
 	function voltaCart() {
-		
+		setIdItems([...idItems, selectedItem]);
 		navigate("/cart");
 	}
 
-
 	return (
 		<>
-		<Container>
-			<Wrapper>
-				<ImgContainer>
-					<Image src={selectedItem.image} />
-				</ImgContainer>
-				<InfoContainer>
-					<Title>{selectedItem.name}</Title>
-					<Desc>{selectedItem.description}</Desc>
-					<Price>{selectedItem.value}</Price>
-					<AddContainer>
-						<Button onClick={addIdCart}>ADD TO CART</Button>
-						<Button onClick={voltaCart}>CHECKOUT</Button>
-					</AddContainer>
-				</InfoContainer>
-			</Wrapper>
-		</Container>
-		<Home>
-			<Container>
-				<Wrapper>
-					<ImgContainer>
-						<Image src={selectedItem.image} />
-					</ImgContainer>
-					<InfoContainer>
-						<Title>{selectedItem.name}</Title>
-						<Desc></Desc>
-						<Price>{selectedItem.value}</Price>
-						<FilterContainer>
-							<Filter>
-								<FilterTitle>Color</FilterTitle>
-
-								<FilterColor />
-							</Filter>
-							<Filter>
-								<FilterTitle>Size</FilterTitle>
-								<FilterSize>
-									<FilterSizeOption></FilterSizeOption>
-								</FilterSize>
-							</Filter>
-						</FilterContainer>
-						<AddContainer>
-							<AmountContainer>
-								<Remove />
-								<Amount></Amount>
-								<Add />
-							</AmountContainer>
-							<Button onClick={addIdCart}>ADD TO CART</Button>
-						</AddContainer>
-
-						<span>{selectedItem.description}</span>
-					</InfoContainer>
-				</Wrapper>
-			</Container>
-		</Home>
+			<Home>
+				<Container>
+					<Wrapper>
+						<ImgContainer>
+							<Image src={selectedItem.image} />
+						</ImgContainer>
+						<InfoContainer>
+							<Title>{selectedItem.name}</Title>
+							<Desc>{selectedItem.description}</Desc>
+							<Price>{selectedItem.value}</Price>
+							<AddContainer>
+								<Button onClick={addIdCart}>ADD TO CART</Button>
+								<Button onClick={voltaCart}>CHECKOUT</Button>
+							</AddContainer>
+						</InfoContainer>
+					</Wrapper>
+				</Container>
+			</Home>
 		</>
 	);
 };
@@ -123,67 +84,22 @@ const Price = styled.span`
 	font-size: 40px;
 `;
 
-const FilterContainer = styled.div`
-	width: 50%;
-	margin: 30px 0px;
-	display: flex;
-	justify-content: space-between;
-	${mobile({ width: "100%" })}
-`;
-
-const Filter = styled.div`
-	display: flex;
-	align-items: center;
-`;
-
-const FilterTitle = styled.span`
-	font-size: 20px;
-	font-weight: 200;
-`;
-
-const FilterColor = styled.div`
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	/* background-color: ${(props) => props.color}; */
-	margin: 0px 5px;
-	cursor: pointer;
-`;
-
-const FilterSize = styled.select`
-	margin-left: 10px;
-	padding: 5px;
-`;
-
-const FilterSizeOption = styled.option``;
-
 const AddContainer = styled.div`
-	width: 50%;
+	width: 80%;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	${mobile({ width: "100%" })}
+	div:first-child {
+		margin-right: 15px;
+	}
 `;
 
-const AmountContainer = styled.div`
-	display: flex;
-	align-items: center;
-	font-weight: 700;
-`;
-
-const Amount = styled.span`
-	width: 30px;
-	height: 30px;
-	border-radius: 10px;
-	border: 1px solid teal;
+const Button = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 0px 5px;
-`;
-
-const Button = styled.button`
-	padding: 15px;
+	height: 50px;
+	padding: 10px;
 	border: 2px solid teal;
 	background-color: white;
 	cursor: pointer;
@@ -191,4 +107,5 @@ const Button = styled.button`
 	&:hover {
 		background-color: #f8f4f4;
 	}
+	margin-top: 20px;
 `;

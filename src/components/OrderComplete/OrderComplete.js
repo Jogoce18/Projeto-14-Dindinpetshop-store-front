@@ -1,30 +1,13 @@
-import axios from "axios";
-import { useContext } from "react";
 import styled from "styled-components";
+import approved from "../../approved.png";
 
-import SearchContext from "../contexts/SearchContext";
-import UserContext from "../contexts/UserContext";
 import Home from "../Home";
 
 export default function OrderComplete() {
-	const { loginDataInput } = useContext(UserContext);
-	const { idItems } = useContext(SearchContext);
-	//criar variavel de controle quando concluir o pedido
-	if (false) {
-		try {
-			axios.post("http://localhost:5000/done", {
-				user: loginDataInput.email,
-				items: idItems,
-			});
-		} catch (error) {
-			console.log("deu ruim");
-		}
-	}
-
 	return (
 		<Home>
 			<Box>
-				<img src="./assets/approved.png" alt="Approved" />
+				<img src={approved} alt="Approved" />
 			</Box>
 		</Home>
 	);
