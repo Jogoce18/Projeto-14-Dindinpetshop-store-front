@@ -13,61 +13,52 @@ import SearchContext from "./contexts/SearchContext";
 import OrderComplete from "./OrderComplete/OrderComplete";
 import Cart from "./Cart/Cart";
 export default function App() {
-    const [userInformation, setUserInformation] = useState({});
-    const [loginDataInput, setLoginDataInput] = useState({
-        email: "",
-        password: "",
-    });
-    const [searchInformation, setSearchInformation] = useState([]);
-    const [products, setProducts] = useState([]);
-    const [selectedItem, setSelectedItem] = useState({});
-    const [idItems, setIdItems] = useState([]);
-    return (
-        <UserContext.Provider
-            value={{
-                userInformation,
-                setUserInformation,
-                loginDataInput,
-                setLoginDataInput,
-            }}
-        >
-            <SearchContext.Provider
-                value={{
-                    searchInformation,
-                    setSearchInformation,
-                    products,
-                    setProducts,
-                    setSelectedItem,
-                    selectedItem,
-                    idItems,
-                    setIdItems,
-                }}
-            >
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/login" element={<LoginScreen />} />
-                        <Route path="/cadastro" element={<Register />} />
-                        <Route path="/" element={<Home />} />
-                        <Route path="/product/:id" element={<Product />} />
+	const [userInformation, setUserInformation] = useState({});
+	const [loginDataInput, setLoginDataInput] = useState({
+		email: "",
+		password: "",
+	});
+	const [searchInformation, setSearchInformation] = useState([]);
+	const [products, setProducts] = useState([]);
+	const [selectedItem, setSelectedItem] = useState({});
+	const [idItems, setIdItems] = useState([]);
+	const [paymentInformation, setPaymentInformation] = useState({});
+	return (
+		<UserContext.Provider
+			value={{
+				userInformation,
+				setUserInformation,
+				loginDataInput,
+				setLoginDataInput,
+			}}
+		>
+			<SearchContext.Provider
+				value={{
+					searchInformation,
+					setSearchInformation,
+					products,
+					setProducts,
+					setSelectedItem,
+					selectedItem,
+					idItems,
+					setIdItems,
+					setPaymentInformation,
+					paymentInformation,
+				}}
+			>
+				<BrowserRouter>
+					<Routes>
+						<Route path="/login" element={<LoginScreen />} />
+						<Route path="/cadastro" element={<Register />} />
+						<Route path="/" element={<Home />} />
+						<Route path="/product/:id" element={<Product />} />
 						<Route path="/cart" element={<Cart />} />
-                        <Route path="/products/:category" element={<ProductList />} />
-                        <Route path="/search" element={<SearchScreen />} />
-                        <Route path="/done" element={<OrderComplete />} />
-                    </Routes>
-                </BrowserRouter>
-            </SearchContext.Provider>
-        </UserContext.Provider>
-    );
+						<Route path="/products/:category" element={<ProductList />} />
+						<Route path="/search" element={<SearchScreen />} />
+						<Route path="/done" element={<OrderComplete />} />
+					</Routes>
+				</BrowserRouter>
+			</SearchContext.Provider>
+		</UserContext.Provider>
+	);
 }
-
-
-
-
-
-
-
-
-
-
-
-

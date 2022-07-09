@@ -1,8 +1,4 @@
-import {
-	FavoriteBorderOutlined,
-	SearchOutlined,
-	ShoppingCartOutlined,
-} from "@material-ui/icons";
+import { SearchOutlined } from "@material-ui/icons";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -23,7 +19,7 @@ const Product = ({ item }) => {
 
 			navigate(`/product/${item._id}`);
 		} catch (error) {
-			console.log("deu ruim");
+			console.log(error);
 		}
 	}
 
@@ -33,13 +29,7 @@ const Product = ({ item }) => {
 			<Image src={item.image} />
 			<Info>
 				<Icon>
-					<ShoppingCartOutlined />
-				</Icon>
-				<Icon>
 					<SearchOutlined onClick={searchItemWithId} />
-				</Icon>
-				<Icon>
-					<FavoriteBorderOutlined />
 				</Icon>
 			</Info>
 		</Container>
