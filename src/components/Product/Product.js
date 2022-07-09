@@ -5,6 +5,11 @@ import { useContext } from "react";
 import SearchContext from "../contexts/SearchContext";
 
 
+
+import { useNavigate } from "react-router-dom";
+import Home from "../Home";
+
+
 const Product = () => {
 	const { selectedItem, idItems, setIdItems } = useContext(SearchContext);
 	const navigate = useNavigate();
@@ -20,6 +25,7 @@ const Product = () => {
 
 
 	return (
+		<>
 		<Container>
 			<Wrapper>
 				<ImgContainer>
@@ -36,6 +42,44 @@ const Product = () => {
 				</InfoContainer>
 			</Wrapper>
 		</Container>
+		<Home>
+			<Container>
+				<Wrapper>
+					<ImgContainer>
+						<Image src={selectedItem.image} />
+					</ImgContainer>
+					<InfoContainer>
+						<Title>{selectedItem.name}</Title>
+						<Desc></Desc>
+						<Price>{selectedItem.value}</Price>
+						<FilterContainer>
+							<Filter>
+								<FilterTitle>Color</FilterTitle>
+
+								<FilterColor />
+							</Filter>
+							<Filter>
+								<FilterTitle>Size</FilterTitle>
+								<FilterSize>
+									<FilterSizeOption></FilterSizeOption>
+								</FilterSize>
+							</Filter>
+						</FilterContainer>
+						<AddContainer>
+							<AmountContainer>
+								<Remove />
+								<Amount></Amount>
+								<Add />
+							</AmountContainer>
+							<Button onClick={addIdCart}>ADD TO CART</Button>
+						</AddContainer>
+
+						<span>{selectedItem.description}</span>
+					</InfoContainer>
+				</Wrapper>
+			</Container>
+		</Home>
+		</>
 	);
 };
 
