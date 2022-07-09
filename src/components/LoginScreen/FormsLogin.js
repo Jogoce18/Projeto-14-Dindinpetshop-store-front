@@ -26,7 +26,8 @@ export default function FormsLogin({
 					required
 				/>
 				<Button onClick={login} type="submit">
-					Entrar
+					LOGIN
+					
 				</Button>
 				<Link to="/cadastro" style={{ textDecoration: "none" }}>
 					<span>Não tem conta? Cadastre-se aqui!</span>
@@ -46,11 +47,11 @@ const Form = styled.form`
 	}
 
 	input:valid {
-		border: 2px solid green;
+		border: 2px solid teal;
 	}
 
 	input:invalid {
-		border: 2px solid red;
+		border: 2px solid #ffe4c4;
 	}
 
 	textarea:focus,
