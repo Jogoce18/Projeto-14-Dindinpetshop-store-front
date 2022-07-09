@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Product from "./Item";
+import Home from "../Home";
 
 import { useContext } from "react";
 
@@ -9,11 +10,13 @@ const Products = () => {
 	const { products } = useContext(SearchContext);
 
 	return (
-		<Container>
-			{products.map((item, index) => (
-				<Product key={index} item={item} />
-			))}
-		</Container>
+		<Home>
+			<Container>
+				{products.map((item, index) => (
+					<Product key={index} item={item} />
+				))}
+			</Container>
+		</Home>
 	);
 };
 
