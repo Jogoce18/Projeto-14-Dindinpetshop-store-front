@@ -21,7 +21,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^4.0.3",
     "react-stripe-checkout": "^2.6.3",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "sweetalert2": "^11.4.20"
   },
   "scripts": {
     "start": "react-scripts start",

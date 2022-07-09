@@ -16,6 +16,9 @@ export default function TopBar() {
 	function goHome() {
 		navigate("/");
 	}
+	function goCart() {
+		navigate("/cart");
+	}
 
 	return (
 		<Box>
@@ -29,7 +32,7 @@ export default function TopBar() {
 				) : (
 					<ButtonLogin onClick={clickLogin}>SIGN IN</ButtonLogin>
 				)}
-				<ion-icon name="cart-outline"></ion-icon>
+				<ion-icon name="cart-outline"onClick={goCart}></ion-icon>
 			</span>
 		</Box>
 	);

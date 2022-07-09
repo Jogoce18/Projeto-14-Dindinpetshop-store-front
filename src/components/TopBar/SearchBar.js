@@ -60,6 +60,7 @@ const Form = styled.form`
 const Input = styled.input`
 	width: 120%;
 	padding: 13px;
+	font-family: 'Urbanist', sans-serif;
 `;
 
 const Button = styled.button`
@@ -69,4 +70,6 @@ const Button = styled.button`
 	background-color: teal;
 	color: white;
 	cursor: pointer;
+	font-family: 'Urbanist', sans-serif;
+    
 `;

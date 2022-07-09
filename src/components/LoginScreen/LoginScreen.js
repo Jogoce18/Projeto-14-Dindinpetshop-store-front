@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import axios from "axios";
+import { sendAlert } from "../Alert/Alert";
 
 import AuthScreen from "../shared/AuthScreen";
 import url from "../services/url";
@@ -35,10 +36,12 @@ export default function LoginScreen() {
 			navigate("/");
 		} catch (error) {
 			if (error.response.status === 422) {
-				alert("Preencha os dados corretamente!");
+				sendAlert('error', '', "Preencha os dados corretamente!")
+				;
 			}
 			if (error.response.status === 401) {
-				alert("Usuário/senha inválidos!");
+				sendAlert('error', '', "Usuário/senha inválidos!")
+				
 			}
 		}
 	}

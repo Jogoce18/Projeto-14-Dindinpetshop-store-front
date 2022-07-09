@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import AuthScreen from "../shared/AuthScreen";
 import React, { useState, useEffect } from 'react';
-import {  useNavigate,Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ThreeDots } from 'react-loader-spinner';
+import { sendAlert } from "../Alert/Alert";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -54,6 +55,7 @@ const Register = () => {
                 navigate('/');
             })
             .catch((err) => {
+                sendAlert('error', '', 'Usuario Já Cadastrado')
                 console.log({
                     message:
                         'Sign Up error! Check your credentials and try again',
@@ -164,6 +166,8 @@ const Register = () => {
 				 >
 					 CREATE
 				 </Button>
+               
+               
                 ) : (
 					
 					<Button type="button" disabled>
@@ -173,15 +177,14 @@ const Register = () => {
 						width={51}
 					/>
 				    </Button>
+
 				    
                 )}
 				
-			  
 			</Form>
-			<Link to="/">
-                <Cadastro>Já tem uma conta? Faça login!</Cadastro>
-          </Link>
+            
 		</AuthScreen>
+        
 	);
 };
 
@@ -193,6 +196,23 @@ const Title = styled.h1`
 const Form = styled.form`
 	display: flex;
 	flex-wrap: wrap;
+    span {
+		font-size: 12px;
+		color: black;
+	}
+
+	input:valid {
+		border: 2px solid teal;
+	}
+
+	input:invalid {
+		border: 2px solid #ffe4c4;
+	}
+
+	textarea:focus,
+	input:focus {
+		outline: none;
+	}
 `;
 
 const Input = styled.input`
@@ -200,6 +220,7 @@ const Input = styled.input`
 	min-width: 40%;
 	margin: 20px 10px 0px 0px;
 	padding: 10px;
+
 `;
 
 const Agreement = styled.span`
@@ -215,15 +236,7 @@ const Button = styled.button`
 	color: white;
 	cursor: pointer;
 `;
-const Cadastro = styled.p`
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-decoration: underline;
-    
-`;
+
 
 
 export default Register;

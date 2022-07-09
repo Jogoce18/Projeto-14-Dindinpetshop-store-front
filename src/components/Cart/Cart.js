@@ -1,93 +1,95 @@
-import { Add, Remove } from "@material-ui/icons";
-
 import styled from "styled-components";
-import StripeCheckout from "react-stripe-checkout";
 import { mobile } from "../../responsive";
+import { useContext } from "react";
+import SearchContext from "../contexts/SearchContext";
+import TopBar from "../TopBar/TopBar";
+import { useNavigate } from "react-router-dom"; 
 
 
 const Cart = () => {
- 
+
+const {idItems } = useContext(SearchContext);
+const navigate = useNavigate();
+
+idItems.map((product) => {
+  console.log(product)
+});
+function addIdCart() {
+  navigate("/");
+}
   return (
-    <Container>
+
+    <>
       
-      <Wrapper>
-        <Title>YOUR BAG</Title>
+       
+       <TopBar/>
+       <Container>
+        <Title1>YOUR BAG</Title1>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
-          <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
-          </TopTexts>
-        
+          <TopButton onClick={addIdCart}>CONTINUE SHOPPING</TopButton>
+          
         </Top>
-        <Bottom>
-          <Info>
-              <Product>
-                <ProductDetail>
-                  <Image  />
-                  <Details>
-                    <ProductName>
-                      <b>Product:</b> dsv
-                    </ProductName>
-                    <ProductId>
-                      <b>ID:</b> 234
-                    </ProductId>
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>3</ProductAmount>
-                    <Remove />
-                  </ProductAmountContainer>
-                  <ProductPrice>
-                    $ 222
-                  </ProductPrice>
-                </PriceDetail>
-              </Product>
-            <Hr />
-          </Info>
-          <Summary>
-            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ </SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Estimated Shipping</SummaryItemText>
-              <SummaryItemPrice>$ 5.90</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem type="total">
-              <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ </SummaryItemPrice>
-            </SummaryItem>
-            <StripeCheckout>
-              <Button>CHECKOUT NOW</Button>
-            </StripeCheckout>
-          </Summary>
-        </Bottom>
-      </Wrapper>
+        <HeaderContainer>
+        
+          <HeaderDiv>
+            <h1>CART ITEMS</h1>
+            <h2>SUBTOTAL</h2>
+          </HeaderDiv>
+        </HeaderContainer>
+        <BodyContainer>
+          <BodyDiv>
+            <CartContainer>
+              {idItems.map((product) => {
+                return (
+                  <CartDiv key={product._id}>
+                    <CartNome>
+                      <img src={product.image} />
+                      <h1>{product.name}</h1>
+                    </CartNome>
+                    <h2>$ {product.value}</h2>
+                  </CartDiv>
+                );
+              })}
+              <Total>Total: R$</Total>
+              <Button >CHECKOUT NOW</Button>
+             
+            </CartContainer>
      
-    </Container>
-  );
-};
+          </BodyDiv>
+         
+        </BodyContainer>
+        </Container>
+        
+        </>
+      
+        
+    
+    );
+    
+  
+            }
 
+
+    /**----------------**/
+
+ 
 export default Cart;
-
-const Container = styled.div``;
-
-const Wrapper = styled.div`
-  padding: 20px;
-  ${mobile({ padding: "10px" })}
+const Container = styled.div`
 `;
-
-const Title = styled.h1`
-  font-weight: 300;
+const Title1 = styled.h1`
+margin-top:26px;
+  font-weight: 600;
   text-align: center;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 18px;
+`;
+const Button1 = styled.button`
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  margin-bottom:15px;
 `;
 
 const Top = styled.div`
@@ -105,122 +107,123 @@ const TopButton = styled.button`
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
+  
 `;
-
-const TopTexts = styled.div`
-  ${mobile({ display: "none" })}
-`;
-const TopText = styled.span`
-  text-decoration: underline;
-  cursor: pointer;
-  margin: 0px 10px;
-`;
-
-const Bottom = styled.div`
-  display: flex;
-  justify-content: space-between;
-  ${mobile({ flexDirection: "column" })}
-`;
-
-const Info = styled.div`
-  flex: 3;
-`;
-
-const Product = styled.div`
-  display: flex;
-  justify-content: space-between;
-  ${mobile({ flexDirection: "column" })}
-`;
-
-const ProductDetail = styled.div`
-  flex: 2;
-  display: flex;
-`;
-
-const Image = styled.img`
-  width: 200px;
-`;
-
-const Details = styled.div`
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-`;
-
-const ProductName = styled.span``;
-
-const ProductId = styled.span``;
-
-const ProductColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-`;
-
-const ProductSize = styled.span``;
-
-const PriceDetail = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const ProductAmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-const ProductAmount = styled.div`
-  font-size: 24px;
-  margin: 5px;
-  ${mobile({ margin: "5px 15px" })}
-`;
-
-const ProductPrice = styled.div`
-  font-size: 30px;
-  font-weight: 200;
-  ${mobile({ marginBottom: "20px" })}
-`;
-
-const Hr = styled.hr`
-  background-color: #eee;
-  border: none;
-  height: 1px;
-`;
-
-const Summary = styled.div`
-  flex: 1;
-  border: 0.5px solid lightgray;
-  border-radius: 10px;
-  padding: 20px;
-  height: 50vh;
-`;
-
-const SummaryTitle = styled.h1`
-  font-weight: 200;
-`;
-
-const SummaryItem = styled.div`
-  margin: 30px 0px;
-  display: flex;
-  justify-content: space-between;
-  font-weight: ${(props) => props.type === "total" && "500"};
-  font-size: ${(props) => props.type === "total" && "24px"};
-`;
-
-const SummaryItemText = styled.span``;
-
-const SummaryItemPrice = styled.span``;
-
-const Button = styled.button`
+const HeaderContainer = styled.header`
   width: 100%;
-  padding: 10px;
-  background-color: black;
-  color: white;
-  font-weight: 600;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+const BodyContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:90px
+  
+`;
+const BodyDiv = styled.div`
+  width: 900px;
+  margin-bottom:90px
+`;
+
+
+
+
+const HeaderDiv = styled.div`
+  margin-top: 10px;
+  border-top: 2px solid teal;
+  border-bottom: 2px solid teal;
+  width: 900px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+  h1 {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    margin-right: 200px;
+    color: black;
+ 
+  font-weight: 600;
+  }
+  h2 {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    color: black;
+   font-weight: 600;
+  }
+`;
+const Button = styled.button`
+padding: 10px;
+font-weight: 600;
+cursor: pointer;
+border: ${(props) => props.type === "filled" && "none"};
+background-color: ${(props) =>
+  props.type === "filled" ? "black" : "transparent"};
+color: ${(props) => props.type === "filled" && "white"};
+margin-bottom:30px;
+ 
+`;
+const CartNome = styled.div`
+  width: 220px;
+  height: 100%;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-right: 25px;
+  h1 {
+    white-space: nowrap;
+    width: 80px;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    color: black;
+   font-weight: 600;
+  }
+  img {
+    height: 130px;
+    width: 130px;
+    border: 2px solid teal;
+    border-radius: 5px;
+  }
+`;
+
+const CartDiv = styled.div`
+  margin-top: 20px;
+  border-bottom: 2px solid teal;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    font-family: 'Urbanist', sans-serif;
+
+    font-size: 18px;
+    color: black;
+   font-weight: 600;
+  }
+  img {
+    height: 120px;
+    width: 120px;
+  }
+`;
+const CartContainer = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+`;
+const Total = styled.h2`
+  margin-top: 15px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 25px;
+  color: black;
+  text-align: end;
+`;
+

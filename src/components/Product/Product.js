@@ -1,11 +1,9 @@
-import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../../responsive";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"; 
 import { useContext } from "react";
 import SearchContext from "../contexts/SearchContext";
-import { useNavigate } from "react-router-dom";
+
 
 const Product = () => {
 	const { selectedItem, idItems, setIdItems } = useContext(SearchContext);
@@ -15,28 +13,26 @@ const Product = () => {
 		setIdItems([...idItems, selectedItem]);
 		navigate("/");
 	}
+	function voltaCart() {
+		
+		navigate("/cart");
+	}
+
 
 	return (
 		<Container>
-      <TopBar />
 			<Wrapper>
 				<ImgContainer>
 					<Image src={selectedItem.image} />
 				</ImgContainer>
 				<InfoContainer>
 					<Title>{selectedItem.name}</Title>
-					<Desc></Desc>
+					<Desc>{selectedItem.description}</Desc>
 					<Price>{selectedItem.value}</Price>
 					<AddContainer>
-						<AmountContainer>
-							<Remove />
-							<Amount></Amount>
-							<Add />
-						</AmountContainer>
 						<Button onClick={addIdCart}>ADD TO CART</Button>
+						<Button onClick={voltaCart}>CHECKOUT</Button>
 					</AddContainer>
-
-					<span>{selectedItem.description}</span>
 				</InfoContainer>
 			</Wrapper>
 		</Container>
