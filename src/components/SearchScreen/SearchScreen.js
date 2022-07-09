@@ -2,10 +2,9 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import TopBar from "../TopBar/TopBar";
-import Footer from "../Footer.js/Footer";
 import SearchContext from "../contexts/SearchContext";
 import Product from "../ProductList/Item";
+import Home from "../Home";
 
 export default function SearchScreen() {
 	const { searchInformation } = useContext(SearchContext);
@@ -17,8 +16,7 @@ export default function SearchScreen() {
 	}
 
 	return (
-		<>
-			<TopBar />
+		<Home>
 			<Container>
 				{searchInformation.length ? (
 					searchInformation.map((item, index) => (
@@ -29,8 +27,7 @@ export default function SearchScreen() {
 				)}
 			</Container>
 			<Button onClick={goBack}>Voltar</Button>
-			<Footer />
-		</>
+		</Home>
 	);
 }
 
