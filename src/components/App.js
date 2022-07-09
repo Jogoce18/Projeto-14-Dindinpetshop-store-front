@@ -12,7 +12,6 @@ import ProductList from "./ProductList/ProductList";
 import SearchScreen from "./SearchScreen/SearchScreen";
 import SearchContext from "./contexts/SearchContext";
 import OrderComplete from "./OrderComplete/OrderComplete";
-import logo from "../logo.png";
 
 export default function App() {
 	const [userInformation, setUserInformation] = useState({});

@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import SearchContext from "../contexts/SearchContext";
 import UserContext from "../contexts/UserContext";
+import Home from "../Home";
 
 export default function OrderComplete() {
 	const { loginDataInput } = useContext(UserContext);
@@ -21,9 +22,11 @@ export default function OrderComplete() {
 	}
 
 	return (
-		<Box>
-			<img src="./assets/approved.png" alt="Approved" />
-		</Box>
+		<Home>
+			<Box>
+				<img src="./assets/approved.png" alt="Approved" />
+			</Box>
+		</Home>
 	);
 }
 

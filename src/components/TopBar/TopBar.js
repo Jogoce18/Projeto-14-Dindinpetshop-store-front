@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import UserContext from "../contexts/UserContext";
 import SearchBar from "./SearchBar";
+import logo from "../../logo.png";
 
 export default function TopBar() {
 	const { userInformation } = useContext(UserContext);
@@ -20,7 +21,7 @@ export default function TopBar() {
 	return (
 		<Box>
 			<div>
-				<img src="../../logo.png" alt="Logo" onClick={goHome} />
+				<img src={logo} alt="Logo" onClick={goHome} />
 				<SearchBar />
 			</div>
 			<span>
