@@ -28,9 +28,10 @@ const Box = styled.div`
 	width: 100%;
 	background-color: white;
 	padding: 40px 0;
+	height: 60vh;
 
 	img {
-		width: 30%;
+		width: 50%;
 		-webkit-animation-name: tada;
 		animation-name: tada;
 		-webkit-animation-duration: 1s;
@@ -106,5 +107,5 @@ const Button = styled.button`
 	background-color: teal;
 	color: white;
 	cursor: pointer;
-	margin: 0 auto;
+	margin: 20px auto;
 `;

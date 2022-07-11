@@ -60,7 +60,7 @@ const Box = styled.div``;
 const Form = styled.form`
 	display: flex;
 	flex-direction: column;
-	width: 40%;
+	width: 70%;
 	margin: 0 auto;
 
 	div {
@@ -83,15 +83,16 @@ const Input = styled.input`
 	min-width: 40%;
 	margin: 20px 10px 0px 0px;
 	padding: 10px;
+	border: none;
 `;
 
 const Text = styled.p`
 	color: grey;
 	font-size: 13px;
+	margin-top: 3px;
 `;
 
 const Button = styled.button`
-	width: 40%;
 	margin: 0 auto;
 	padding: 10px;
 	font-weight: 600;

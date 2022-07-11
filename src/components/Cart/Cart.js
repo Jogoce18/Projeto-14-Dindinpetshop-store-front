@@ -85,7 +85,7 @@ const Cart = () => {
 									<CartDiv key={product._id}>
 										<CartNome>
 											<img src={product.image} alt="product" />
-											<h1>{product.name}</h1>
+											<p>{product.name}</p>
 										</CartNome>
 										<h2>{product.value}</h2>
 									</CartDiv>
@@ -126,6 +126,7 @@ const Top = styled.div`
 `;
 
 const TopButton = styled.button`
+	margin: 0 auto;
 	padding: 10px;
 	font-weight: 600;
 	cursor: pointer;
@@ -152,7 +153,7 @@ const BodyContainer = styled.div`
 `;
 
 const BodyDiv = styled.div`
-	width: 900px;
+	width: 100%;
 `;
 
 const HeaderDiv = styled.div`
@@ -165,7 +166,7 @@ const HeaderDiv = styled.div`
 	justify-content: space-between;
 	align-items: center;
 
-	h1 {
+	p {
 		font-family: "Urbanist", sans-serif;
 		font-size: 18px;
 		margin-right: 200px;
