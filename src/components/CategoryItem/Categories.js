@@ -7,7 +7,7 @@ const Container = styled.div`
 	display: flex;
 	padding: 20px;
 	justify-content: space-between;
-	height: 70vh;
+	height: 40%;
 	${mobile({ padding: "0px", flexDirection: "column" })}
 `;
 
