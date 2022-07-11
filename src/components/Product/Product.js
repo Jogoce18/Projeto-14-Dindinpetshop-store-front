@@ -46,7 +46,9 @@ const Product = () => {
 
 export default Product;
 
-const Container = styled.div``;
+const Container = styled.div`
+	${mobile({ margin: "0 0 75px 0 " })}
+`;
 
 const Wrapper = styled.div`
 	padding: 50px;

@@ -21,7 +21,7 @@ const CategoryItem = ({ item }) => {
 			setProducts(data);
 			navigate(`/products/${item.cat}`);
 		} catch (err) {
-			console.log("deu ruim");
+			console.log(err);
 		}
 	};
 
