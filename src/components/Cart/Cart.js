@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
-import SearchContext from "../contexts/SearchContext";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
-import Payment from "./Payment";
-import Home from "../Home";
 import axios from "axios";
+
+import url from "../services/url";
+import Home from "../Home";
+import Payment from "./Payment";
+import SearchContext from "../contexts/SearchContext";
 
 const Cart = () => {
 	const { idItems, setIdItems } = useContext(SearchContext);
@@ -34,14 +36,24 @@ const Cart = () => {
 		setPaymentData(data);
 	}
 
+	let config = {
+		headers: {
+			Authorization: `Bearer ${userInformation.token}`,
+		},
+	};
+
 	async function checkOut(e) {
 		e.preventDefault();
 		if (userInformation.token) {
 			try {
-				await axios.post("https://dindinpetshop.herokuapp.com/done", {
-					paymentData,
-					items: idItems,
-				});
+				await axios.post(
+					url.done,
+					{
+						paymentData,
+						items: idItems,
+					},
+					config
+				);
 				setIdItems([]);
 				navigate("/done");
 			} catch (error) {

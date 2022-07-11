@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 import SearchContext from "../contexts/SearchContext";
+import { mobile } from "../../responsive";
 
 const Product = ({ item }) => {
 	const { setSelectedItem } = useContext(SearchContext);
@@ -67,6 +68,7 @@ const Container = styled.div`
 	&:hover ${Info} {
 		opacity: 1;
 	}
+	${mobile({ margin: "0 0 70px 0" })}
 `;
 
 const Circle = styled.div`
