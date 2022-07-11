@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { mobile } from "../../responsive";
 
 import UserContext from "../contexts/UserContext";
 import SearchBar from "./SearchBar";
@@ -17,6 +18,7 @@ export default function TopBar() {
 	function goHome() {
 		navigate("/");
 	}
+
 	function goCart() {
 		navigate("/cart");
 	}
@@ -33,7 +35,7 @@ export default function TopBar() {
 				) : (
 					<ButtonLogin onClick={clickLogin}>SIGN IN</ButtonLogin>
 				)}
-				<ion-icon name="cart-outline"onClick={goCart}></ion-icon>
+				<ion-icon name="cart-outline" onClick={goCart}></ion-icon>
 			</span>
 		</Box>
 	);
@@ -57,6 +59,8 @@ const Box = styled.div`
 	span {
 		display: flex;
 		margin-right: 30px;
+
+		${mobile({ display: "none" })}
 	}
 
 	div:first-child {

@@ -1,14 +1,22 @@
 import styled from "styled-components";
 import approved from "../../approved.png";
+import { useNavigate } from "react-router-dom";
 
 import Home from "../Home";
 
 export default function OrderComplete() {
+	const navigate = useNavigate();
+
+	function goBack() {
+		navigate("/");
+	}
+
 	return (
 		<Home>
 			<Box>
 				<img src={approved} alt="Approved" />
 			</Box>
+			<Button onClick={goBack}>Voltar</Button>
 		</Home>
 	);
 }
@@ -86,4 +94,17 @@ const Box = styled.div`
 			transform: scale3d(1, 1, 1);
 		}
 	}
+`;
+
+const Button = styled.button`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	border: none;
+	padding: 15px 20px;
+	background-color: teal;
+	color: white;
+	cursor: pointer;
+	margin: 0 auto;
 `;

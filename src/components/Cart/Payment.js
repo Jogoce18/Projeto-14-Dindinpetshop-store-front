@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function Payment({ paymentData, handleFormChange, checkOut }) {
 	return (
 		<Box>
-			<Form>
+			<Form onSubmit={checkOut}>
 				<Input
 					type="text"
 					name="name"
@@ -50,9 +50,7 @@ export default function Payment({ paymentData, handleFormChange, checkOut }) {
 						<Text>Ex: 123</Text>
 					</div>
 				</div>
-				<Button onClick={checkOut} type="submit">
-					CHECKOUT NOW
-				</Button>
+				<Button type="submit">CHECKOUT NOW</Button>
 			</Form>
 		</Box>
 	);

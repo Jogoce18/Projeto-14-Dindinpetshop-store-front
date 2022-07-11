@@ -8,7 +8,7 @@ export default function FormsLogin({
 }) {
 	return (
 		<>
-			<Form>
+			<Form onSubmit={login}>
 				<Input
 					type="email"
 					name="email"
@@ -25,10 +25,7 @@ export default function FormsLogin({
 					value={loginDataInput.password}
 					required
 				/>
-				<Button onClick={login} type="submit">
-					LOGIN
-					
-				</Button>
+				<Button type="submit">LOGIN</Button>
 				<Link to="/cadastro" style={{ textDecoration: "none" }}>
 					<span>Não tem conta? Cadastre-se aqui!</span>
 				</Link>
